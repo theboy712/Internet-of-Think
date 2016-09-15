@@ -1,0 +1,121 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 strtok.save
+022     MAIN._nhan_lan_2
+023     MAIN._connercted
+024     MAIN.j
+025     MAIN._so_lan
+026     MAIN._nhan_lan_3
+027     MAIN._ip_nhan_duoc
+028     MAIN.i
+029     _khoi_dong.string
+029     lcd_init.i
+029     MAIN.@SCRATCH1
+029     @PSTRINGC7_9600_62_63.@SCRATCH1
+02A     _khoi_dong.done
+02A-02D lcd_init.LCD_INIT_STRING
+02A     MAIN.@SCRATCH2
+02A     @PSTRINGC7_9600_62_63.@SCRATCH2
+02B     _khoi_dong.i
+02B     MAIN.@SCRATCH3
+02B     @PSTRINGC7_9600_62_63.@SCRATCH3
+02C     _khoi_dong.j
+02C     @PSTRINGC7_9600_62_63.@SCRATCH4
+02D     @PSTRINGC7_740.@SCRATCH1
+02D     _khoi_dong.@SCRATCH1
+02E     lcd_init.@SCRATCH1
+02E     @PSTRINGC7_740.@SCRATCH2
+02F     @PSTRINGC7_740.@SCRATCH3
+030     lcd_putc.c
+030     @PSTRINGC7_740.@SCRATCH4
+031     lcd_gotoxy.x
+031     @delay_ms1.P1
+032     lcd_gotoxy.y
+033     lcd_gotoxy.address
+034     lcd_gotoxy.@SCRATCH1
+035     lcd_send_byte.address
+036     lcd_send_byte.n
+037     lcd_read_byte.low
+037     lcd_send_byte.@SCRATCH1
+038     lcd_send_nibble.n
+038     lcd_read_byte.high
+039     lcd_read_nibble.n
+039     lcd_read_byte.@SCRATCH1
+03A     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const758.call
+00000B  @const760.call
+000011  @const762.call
+000016  @const764.call
+00001C  @const770.call
+000024  @const771.call
+00002D  @const772.call
+000032  @const776.call
+000034  @const782.call
+000037  @delay_ms1
+00004B  lcd_send_nibble
+00007B  lcd_read_nibble
+0000AC  lcd_send_byte
+0000B4  lcd_read_byte
+00010A  lcd_init
+000150  lcd_gotoxy
+000162  lcd_putc
+00018E  @PSTRINGC7_740
+0001E4  _khoi_dong
+000230  @PSTRINGC7_9600_62_63
+000288  MAIN
+000288  @cinit1
+00029A  @cinit2
+
+Project Directory:
+    C:\Users\trung\Documents\CCS C Projects\demo\
+
+Project Files:
+    main.c                                                  [15-Sep-16 15:22  CRC=6BE37F4D]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-Nov-13 14:35  CRC=81334808]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [14-Jul-11 10:13  CRC=23EDEC8F]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-Jul-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-Jan-08 13:55  CRC=2D1F019F]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [19-Sep-13 15:38  CRC=D1A6378A]
+
+Source signature=6AED1103
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

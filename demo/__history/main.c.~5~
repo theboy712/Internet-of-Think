@@ -1,0 +1,87 @@
+#include <16f877a.h>
+#include <string.h>
+#include "lcd.h"
+#define RS RB2
+#define EN RB3
+#define D4 RB4
+#define D5 RB5
+#define D6 RB6
+#define D7 RB7
+#use delay (clock = 20000000 )
+#FUSES NOWDT, HS, PUT, NOPROTECT
+
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=PORT1)
+void _khoi_dong(void);
+
+void main()
+{
+   Lcd4_Init();
+   Lcd4_Set_Cursor(1,1);
+    Lcd4_Write_String("READY... ?");
+   khoi_dong();
+   //gui ID va mat khau de ket noi
+   printf("AT+CWJAP=\"");
+    printf(_ID);
+    printf("\",\"");
+    printf(_mat_khau);
+    printf("\"\r\n");
+    //doi ket noi xong.........
+    char _nhan_lan_2[];
+    bool _connercted = false;
+    do
+    {
+       gets(_nhan_lan_2);
+       for (int j = 0; j < 60; ++j)
+       {
+          unsigned int _so_lan = 1;
+          if (_nhan_lan_2[i] == 'O' && _nhan_lan_2[i+1] == 'K')
+          {
+             _connercted = true;
+             lcd_putc("CONNECTED WIFI");
+             break;
+          }
+          _so_lan = _so_lan++;
+          if (_so_lan == 59)
+          {
+             lcd_putc("FAIL...RECONNCET");
+          }
+       }
+    }
+    while(_connercted == false)
+   // Neu da ket noi thanh cong gui lenh lay IP local
+    printf("AT+CIFSR\n");
+   char _nhan_lan_3[];
+   char _ip_nhan_duoc[];
+   gets(_nhan_lan_3);
+   for (int i = 9; i < 30; ++i)
+   {
+      _ip_nhan_duoc[i] = _nhan_lan_3[i];
+      if (_nhan_lan_3[i] == " ")
+      {
+         //nhan LCD and thoat ra
+         lcd_putc(_ip_nhan_duoc);
+         break;
+      }
+   }
+
+
+   while(true)
+   {
+   //_gui_noi_dung();
+   //_nhan_noi_dung();
+   //_dieu_khien();
+   }
+}
+void _khoi_dong(void)
+{
+   char string[];
+   printf("AT\n");
+   gets(string);
+   if(strcmp(string, "OK"))
+   {
+      Lcd4_Set_Cursor(2,1);
+      Lcd4_Write_String("ESP8266 READY");
+      Lcd4_Clear();
+   }
+
+}
